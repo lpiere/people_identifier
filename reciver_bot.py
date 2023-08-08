@@ -4,6 +4,7 @@ from telegram import Update
 from telegram.ext import filters, MessageHandler, ApplicationBuilder, ContextTypes
 from hashlib import md5
 from datetime import datetime
+from s3_loader import upload_file
 
 if "data" not in os.listdir():
     os.mkdir("data")
@@ -24,7 +25,8 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     new_file = await update.effective_message.effective_attachment[-1].get_file()
     await new_file.download_to_drive(f'data/{update.effective_user.full_name}/{photo_hash_name}.png')
-
+    upload_file(f'data/{update.effective_user.full_name}/{photo_hash_name}.png', f'{update.effective_user.full_name}/{photo_hash_name}.png')
+    os.remove(f'data/{update.effective_user.full_name}/{photo_hash_name}.png')
     await context.bot.send_message(chat_id=update.effective_chat.id, text=f"Foto adicionada ao seu perfil")
 
 
