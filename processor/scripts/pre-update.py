@@ -2,7 +2,7 @@ import os
 import boto3
 import shutil
 
-service_name = "image-processor"
+service_name = "face_capture"
 
 cloudformation_bucket = "lambda-scripts-my-projects"
 

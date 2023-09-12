@@ -1,6 +1,6 @@
 import boto3
 
-service_name = "image-processor"
+service_name = "face_capture"
 BUCKET_SERVICES = "lambda-scripts-my-projects"
 
 

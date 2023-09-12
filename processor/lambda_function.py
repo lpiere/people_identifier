@@ -4,7 +4,7 @@ import boto3
 s3 = boto3.client('s3')
 def download_pdf(path_s3, name_file):
     try:
-        s3.download_file('people-identifier', path_s3, f"/tmp/{name_file}")
+        s3.download_file('full-image', path_s3, f"/tmp/{name_file}")
         return True
     except Exception as e:
         print(e)
