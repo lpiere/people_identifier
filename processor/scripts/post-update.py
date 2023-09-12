@@ -1,5 +1,4 @@
 import boto3
-import os
 
 service_name = "image-processor"
 BUCKET_SERVICES = "lambda-scripts-my-projects"

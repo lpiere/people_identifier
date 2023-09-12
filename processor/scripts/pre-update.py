@@ -1,5 +1,4 @@
 import os
-import zipfile
 import boto3
 import shutil
 
@@ -17,7 +16,7 @@ except Exception as e:
 
 os.system("pip install -r ./requirements.txt --upgrade --target package/")
 
-to_move = ["index.py", "requirements.txt"]
+to_move = ["lambda_function.py", "requirements.txt"]
 
 [shutil.copyfile(file, f"package/{file}") for file in to_move]
 
